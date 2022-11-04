@@ -1,0 +1,19 @@
+@import 'partials/normalize';
+@import 'partials/variables';
+@import 'partials/helpers';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+#__nuxt,
+#__layout{
+	height: 100%;
+}
+
+.site-main {
+  height: 100%;
+}
