@@ -1,13 +1,13 @@
 <template>
-  <div id="app" class="app">
-    <nuxt />
+  <div>
+    READ - /books
   </div>
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {
+  layout: 'admincms'
+}
 </script>
 
 <style lang="scss" scoped>

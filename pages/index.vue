@@ -1,6 +1,6 @@
 <template>
   <main class="site-main">
-    <h1>Main</h1>
+    <h1>Beranda Page</h1>
   </main>
 </template>
 
