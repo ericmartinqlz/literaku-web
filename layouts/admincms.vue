@@ -1,12 +1,12 @@
 <template>
   <div id="app" class="app">
-    <Header />
+    <AdminCMSSidenav class="sidenav"/>
 
-    <div class="app-content">
-      <AdminCMSSidenav />
-      <nuxt/>
+    <div class="--pushed">
+      <AdminCMSHeader class="header"/>
+      <nuxt class="app-content"/>
+      <AdminCMSFooter class="footer"/>
     </div>
-    <Footer />
   </div>
 </template>
 
@@ -21,10 +21,22 @@ export default {
   height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: column;
 }
 
-.app-content {
-  flex: 1;
+.sidenav {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.--pushed {
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
+
+  & > .app-content {
+    flex: 1;
+  }
 }
 </style>

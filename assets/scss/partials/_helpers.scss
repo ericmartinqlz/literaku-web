@@ -1,0 +1,85 @@
+// List
+.list-nostyle {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+// Typography
+.text-small {
+	font-size: 80%;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-upp {
+	text-transform: uppercase;
+}
+
+.text-low {
+	text-transform: lowercase;
+}
+
+.text-cap {
+	text-transform: capitalize;
+}
+
+// Display
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.desktop-only {
+	display: none !important;
+
+	@media #{$large} {
+		display: block !important;
+	}
+}
+
+// Position
+.p-absolute {
+	position: absolute;
+}
+
+.p-relative {
+	position: relative;
+}
+
+.p-fixed {
+	position: fixed;
+}
+
+// Cursor
+.pointer {
+	cursor: pointer;
+}
+
+.cursor-default {
+	cursor: default;
+}
+
+// Color & Background
+@each $state, $color in $palettes {
+	.text-#{$state} {
+		color: $color;
+	}
+
+	.bg-#{$state} {
+		background-color: $color;
+	}
+}

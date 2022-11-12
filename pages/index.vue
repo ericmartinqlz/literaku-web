@@ -1,11 +1,12 @@
 <template>
   <main class="site-main">
-    <h1>Beranda Page</h1>
+    <img src="assets/img/literaku.png" alt="">
   </main>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  layout: 'blank'
 }
 </script>
