@@ -21,22 +21,26 @@ export default {
   height: 100%;
   width: 100%;
   display: flex;
+  background: $primary-t95;
 }
 
 .sidenav {
-  position: fixed;
-  width: 250px;
   height: 100%;
-  overflow-y: auto;
 }
 
 .--pushed {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  margin-left: 250px;
+  background: $primary-t95;
 
   & > .app-content {
     flex: 1;
+  }
+
+  @media #{$medium} {
+    border-radius: 10px 0 0 10px;
+    margin-left: 250px;
   }
 }
 </style>

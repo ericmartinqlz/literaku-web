@@ -76,3 +76,13 @@ a,
 		background: lighten($color: $primary, $amount: 40);
   }
 }
+
+::-moz-selection {
+  color: $black;
+  background: $primary-t50;
+}
+
+::selection {
+  color: $black;
+  background: $primary-t50;
+}
