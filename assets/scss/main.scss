@@ -48,6 +48,16 @@ a,
 	}
 }
 
+.card {
+  background: $white;
+  box-shadow: $shadow;
+  border-radius: 10px;
+
+  & .card-hr {
+    border-top: 0.5px solid rgba($black, 50%);
+  }
+}
+
 .text-highlight-rounded {
 	display: inline-block;
 	padding: 5px 12px 5px;

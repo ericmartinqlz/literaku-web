@@ -2,9 +2,9 @@
   <aside>
     <div v-if="isToggled" class="overlay" @click="isToggled = false"></div>
 
-    <nav class="navbar" :class="[{'active': isToggled}]">
+    <nav class="navbar" :class="[{ active: isToggled }]">
       <div class="nav-head text-upp text-center text-white">
-        <span class="ltk-icon-hamburger"></span>
+        <span class="icon ltk-icon-close" @click="isToggled = false"></span>
         <h1 class="mb-0">Literaku</h1>
         <p class="mb-0">Admin CMS</p>
       </div>
@@ -13,19 +13,36 @@
 
       <!-- Lv 0 - Categorize -->
       <ul class="nav-list lv-0">
-        <li v-for="(item0, index0) in navTreeList" :key="index0" class="nav-item">
-          <span v-if="item0.title !== 'dashboard'" class="category-title text-upp">{{ item0.title }}</span>
+        <li
+          v-for="(item0, index0) in navTreeList"
+          :key="index0"
+          class="nav-item"
+        >
+          <span
+            v-if="item0.title !== 'dashboard'"
+            class="category-title text-upp"
+            >{{ item0.title }}</span
+          >
 
           <!-- Lv 1 - Nav -->
           <ul class="nav-list lv-1">
-            <li v-for="(item1, index1) in item0.children" :key="index1" class="nav-item">
+            <li
+              v-for="(item1, index1) in item0.children"
+              :key="index1"
+              class="nav-item"
+              @click="navClick"
+            >
               <nuxt-link :to="`/admin-cms${item1.url}`" class="text-cap">
-                <span class="icon mr-8" :class="[`ltk-icon-${item1.icon}`]"></span>{{ item1.title }}
+                <span
+                  class="icon mr-8"
+                  :class="[`ltk-icon-${item1.icon}`]"
+                ></span
+                >{{ item1.title }}
               </nuxt-link>
             </li>
           </ul>
 
-          <hr v-if="index0 !== navTreeList.length - 1"/>
+          <hr v-if="index0 !== navTreeList.length - 1" />
         </li>
       </ul>
     </nav>
@@ -40,7 +57,7 @@ export default {
       navList: [],
       navTreeList: [],
 
-      isToggled: true
+      isToggled: false,
     }
   },
   async fetch() {
@@ -58,8 +75,11 @@ export default {
     async setNavList(navList) {
       this.navList = [...navList]
       this.navTreeList = await this.$groupArrayByValues(navList, 'category')
-    }
-  }
+    },
+    navClick() {
+      this.isToggled = false
+    },
+  },
 }
 </script>
 
@@ -79,7 +99,7 @@ export default {
 
 .navbar {
   position: fixed;
-  padding: 32px 0;
+  padding: 18px 0;
   width: 250px;
   height: 100%;
   background: $primary;
@@ -87,22 +107,23 @@ export default {
 
   transition-duration: 0.25s;
   transform: translateX(-250px);
-  
+
   &.active {
     transform: translateX(0px);
   }
   @media #{$medium} {
     transform: translateX(0px);
+    padding: 32px 0;
   }
 }
 
 .nav-head {
-  padding: 0 24px 16px;
+  padding: 0 24px 6px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  & > .ltk-icon-hamburger {
+  & > .icon {
     font-size: 24px;
   }
   & > h1 {
@@ -115,8 +136,9 @@ export default {
 
   @media #{$medium} {
     display: block;
+    padding-bottom: 16px;
 
-    & > .ltk-icon-hamburger {
+    & > .icon {
       display: none;
     }
     & > p {
@@ -174,8 +196,8 @@ export default {
           font-size: 24px;
         }
 
-        &.nuxt-link-active,
         &.nuxt-link-exact-active {
+          background: $dark-primary;
           font-weight: 600;
         }
       }
@@ -189,14 +211,14 @@ hr {
 }
 
 .sidebar::-webkit-scrollbar {
-	width: 10px;
+  width: 10px;
 }
 .sidebar::-webkit-scrollbar-track {
-	background: $light;
-	// border-radius: 10px;
+  background: $light;
+  // border-radius: 10px;
 }
 .sidebar::-webkit-scrollbar-thumb {
-	background: $dark-primary;
-	border-radius: 10px;
+  background: $dark-primary;
+  border-radius: 10px;
 }
 </style>

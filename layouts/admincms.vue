@@ -1,11 +1,11 @@
 <template>
   <div id="app" class="app">
-    <AdminCMSSidenav class="sidenav"/>
+    <AdminCMSSidenav ref="sidenav" class="sidenav" />
 
     <div class="--pushed">
-      <AdminCMSHeader class="header"/>
-      <nuxt class="app-content"/>
-      <AdminCMSFooter class="footer"/>
+      <AdminCMSHeader class="header" @hamburger="hamburgerClicked" />
+      <nuxt class="app-content" />
+      <AdminCMSFooter class="footer" />
     </div>
   </div>
 </template>
@@ -13,6 +13,13 @@
 <script>
 export default {
   name: 'AdminCMSLayout',
+  methods: {
+    hamburgerClicked() {
+      if (this.$refs.sidenav) {
+        this.$refs.sidenav.isToggled = true
+      }
+    },
+  },
 }
 </script>
 
@@ -41,6 +48,14 @@ export default {
   @media #{$medium} {
     border-radius: 10px 0 0 10px;
     margin-left: 250px;
+  }
+}
+
+.main-sect {
+  padding: 36px;
+
+  @media #{$medium} {
+    padding: 48px;
   }
 }
 </style>

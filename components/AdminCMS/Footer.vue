@@ -1,15 +1,11 @@
 <template>
-  <aside>
-    Footer 
-  </aside>
+  <footer>Footer</footer>
 </template>
 
 <script>
 export default {
-  name: 'AdminCMSFooter'
+  name: 'AdminCMSFooter',
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
