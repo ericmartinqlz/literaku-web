@@ -1,0 +1,109 @@
+@import 'partials/normalize';
+@import 'partials/variables';
+@import 'partials/helpers';
+@import 'modules/modules';
+@import 'plugins/vue-datepicker';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  scroll-behavior: smooth;
+
+  font: 400 14px $base_font_family;
+	line-height: $base_line_height;
+
+  @media #{$medium} {
+		font-size: $base_font_size;
+	}
+}
+
+#__nuxt,
+#__layout{
+	height: 100%;
+}
+
+a,
+.text-link {
+	color: $link;
+	text-decoration: none;
+
+  &.btn-link {
+    align-self: center;
+  }
+
+  &:not(.btn-link) {
+    &:hover,
+    &:focus {
+      color: $link_hover;
+    }
+  }
+}
+
+.container {
+	width: 92%;
+	max-width: 960px;
+	margin: 0 auto;
+
+	@media #{$medium} {
+		width: 94%;
+	}
+
+	@media #{$extra_large} {
+		max-width: 1920px;
+	}
+}
+
+.card {
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: $white;
+  box-shadow: $shadow;
+  border-radius: 10px;
+
+  & .card-hr {
+    border-top: 0.5px solid rgba($black, 50%);
+    margin: 16px 0;
+  }
+}
+
+.text-highlight-rounded {
+	display: inline-block;
+	padding: 5px 12px 5px;
+	border-radius: 20px;
+	font-weight: 600;
+  
+  &.yellow,
+  &.warning {
+    color: $warning;
+		background: lighten($color: $warning, $amount: 40);
+  }
+  &.green,
+  &.success {
+    color: $success;
+		background: lighten($color: $success, $amount: 40);
+  }
+  &.red,
+  &.danger {
+    color: $danger;
+		background: lighten($color: $danger, $amount: 40);
+  }
+  &.blue,
+  &.process,
+  &.pending {
+    color: $primary;
+		background: lighten($color: $primary, $amount: 40);
+  }
+}
+
+::-moz-selection {
+  color: $black;
+  background: $primary-t50;
+}
+
+::selection {
+  color: $black;
+  background: $primary-t50;
+}

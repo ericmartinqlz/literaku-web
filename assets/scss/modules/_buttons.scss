@@ -1,0 +1,93 @@
+.btn {
+  cursor: pointer;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  line-height: $base_line_height;
+
+  &:focus {
+		outline: none;
+	}
+
+  &[disabled],
+	&.disabled {
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+}
+
+@mixin btnStyle($bg, $color: #fff, $shade: light) {
+	@extend .btn;
+
+	color: $color;
+	background-color: $bg;
+
+	&:hover {
+		box-shadow: inset 0 0 2px $bg;
+
+		@if $shade == dark {
+			background: lighten($bg, 10%);
+		} @else if $shade == light {
+			background: darken($bg, 10%);
+		}
+	}
+
+	&[disabled],
+	&.disabled {
+    background: #E8EAEF;
+		color: #B3B7C6;
+	}
+}
+
+@mixin btnGhost($bg, $color: #fff, $shade: light) {
+	@extend .btn;
+	color: $bg;
+	background: transparent;
+	border-style: solid;
+	border-width: 1px;
+
+	@if $shade == dark {
+		border-color: $bg;
+	} @else {
+		border-color: darken($bg, 10%);
+	}
+
+	&:hover {
+		color: #fff;
+		text-shadow: 0 1px 2px darken($bg, 10%);
+
+		@if $shade == dark {
+			background-color: $bg;
+		} @else if $shade == light {
+			background-color: darken($bg, 10%);
+		}
+	}
+
+	&[disabled],
+	&.disabled {
+		background: #F6F6F6;
+		color: #B3B7C6;
+		border-color: #B3B7C6;
+	}
+}
+
+@each $state, $color in $palettes {
+	.btn--#{$state} {
+		@include btnStyle($color);
+	}
+
+	.btn--ghost-#{$state} {
+		@include btnGhost($color);
+	}
+
+	.btn--transparent-#{$state} {
+		@include btnGhost($color, $black, light);
+		border-color: transparent;
+	}
+
+	.btn--badge-#{$state} {
+		@include btnStyle($color);
+		padding: 4px 8px;
+		font-size: 12px;
+	}
+}

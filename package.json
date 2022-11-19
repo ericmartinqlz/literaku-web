@@ -17,19 +17,26 @@
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
+    "vue-select": "^3.20.0",
     "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
+    "vue-template-compiler": "^2.7.10",
+    "vue2-datepicker": "^3.11.0",
+    "vuelidate": "^0.7.7"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
     "@nuxtjs/eslint-config": "^11.0.0",
     "@nuxtjs/eslint-module": "^3.1.0",
+    "@nuxtjs/style-resources": "^1.2.1",
     "@nuxtjs/tailwindcss": "^5.3.3",
     "eslint": "^8.24.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.5.1",
     "postcss": "^8.4.17",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "sass": "^1.56.0",
+    "sass-loader": "^10.3.1"
   }
 }

@@ -1,0 +1,174 @@
+// List
+.list-nostyle {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+// Typography
+.text-small {
+	font-size: 80%;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-upp {
+	text-transform: uppercase;
+}
+
+.text-low {
+	text-transform: lowercase;
+}
+
+.text-cap {
+	text-transform: capitalize;
+}
+
+// Display
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.desktop-only {
+	display: none !important;
+
+	@media #{$large} {
+		display: block !important;
+	}
+}
+
+// Position
+.p-absolute {
+	position: absolute;
+}
+
+.p-relative {
+	position: relative;
+}
+
+.p-fixed {
+	position: fixed;
+}
+
+// Cursor
+.pointer {
+	cursor: pointer;
+}
+
+.cursor-default {
+	cursor: default;
+}
+
+// Color & Background
+@each $state, $color in $palettes {
+	.text-#{$state} {
+		color: $color;
+	}
+
+	.bg-#{$state} {
+		background-color: $color;
+	}
+}
+
+// Margin + Padding
+$gaps: 2, 4, 6, 8, 10, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72,
+	76, 80, 84, 88, 92, 96, 100;
+
+@each $gap in $gaps {
+	.mb-#{$gap} {
+		margin-bottom: $gap * 1px !important;
+	}
+	.mr-#{$gap} {
+		margin-right: $gap * 1px !important;
+	}
+	.ml-#{$gap} {
+		margin-left: $gap * 1px !important;
+	}
+	.mt-#{$gap} {
+		margin-top: $gap * 1px !important;
+	}
+	.mv-#{$gap} {
+		margin-top: $gap * 1px !important;
+		margin-bottom: $gap * 1px !important;
+	}
+	.mh-#{$gap} {
+		margin-left: $gap * 1px !important;
+		margin-right: $gap * 1px !important;
+	}
+	.m-#{$gap} {
+		margin: $gap * 1px !important;
+	}
+
+	.pb-#{$gap} {
+		padding-bottom: $gap * 1px !important;
+	}
+	.pr-#{$gap} {
+		padding-right: $gap * 1px !important;
+	}
+	.pl-#{$gap} {
+		padding-left: $gap * 1px !important;
+	}
+	.ph-#{$gap} {
+		padding-left: $gap * 1px !important;
+		padding-right: $gap * 1px !important;
+	}
+	.pt-#{$gap} {
+		padding-top: $gap * 1px !important;
+	}
+	.pv-#{$gap} {
+		padding-top: $gap * 1px !important;
+		padding-bottom: $gap * 1px !important;
+	}
+	.p-#{$gap} {
+		padding: $gap * 1px !important;
+	}
+
+	// Font Size too
+	.font-#{$gap} {
+		font-size: $gap * 1px !important;
+	}
+}
+
+.m-auto {
+	margin: auto !important;
+}
+.ml-auto {
+	margin-left: auto !important;
+}
+.mr-auto {
+	margin-left: auto !important;
+}
+
+.w-full {
+	width: 100%;
+}
+.w-auto {
+	width: auto;
+}
+.w-screen {
+	width: 100vw;
+}
+
+.h-full {
+	height: 100%;
+}
+.h-auto {
+	height: auto;
+}
+.h-screen {
+	height: 100vh;
+}
