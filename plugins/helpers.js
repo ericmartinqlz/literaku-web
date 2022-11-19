@@ -11,10 +11,10 @@ export default (context, inject) => {
 
     const arrGrouped = []
     const entries = Object.entries(objGrouped)
-    entries.map((entry) => {
+    entries.map(entry => {
       arrGrouped.push({
         title: entry[0],
-        children: entry[1],
+        children: entry[1]
       })
 
       return entries

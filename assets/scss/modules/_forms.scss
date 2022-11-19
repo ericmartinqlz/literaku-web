@@ -1,0 +1,52 @@
+form {
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+    & input {
+      width: 100%;
+    }
+  }
+}
+
+.form-input--cms {
+  & input,
+  & textarea {
+    padding: 8px;
+    border: solid 1px $light;
+    border-radius: 4px;
+    font-family: inherit;
+    background: $white;
+    line-height: $base_line_height;
+    box-shadow: none;
+    font-weight: 400;
+  
+    &:focus {
+      border-color: $primary-t10;
+      outline: none;
+    }
+  
+    &[disabled] {
+      cursor: not-allowed;
+      color: #a8a8a8;
+      background: #f6f8fb;
+      -webkit-text-fill-color: #a8a8a8;
+    }
+  
+    &.error {
+      border-color: $danger;
+  
+      &:focus {
+        border-color: $danger;
+      }
+    }
+    &.success {
+      border-color: $success;
+    
+      &:focus {
+        border-color: $success;
+      }
+    }
+  }
+}

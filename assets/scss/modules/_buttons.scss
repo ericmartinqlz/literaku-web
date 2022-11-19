@@ -84,4 +84,10 @@
 		@include btnGhost($color, $black, light);
 		border-color: transparent;
 	}
+
+	.btn--badge-#{$state} {
+		@include btnStyle($color);
+		padding: 4px 8px;
+		font-size: 12px;
+	}
 }

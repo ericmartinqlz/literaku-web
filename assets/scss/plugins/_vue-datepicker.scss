@@ -1,0 +1,110 @@
+@import '../partials/variables';
+
+$namespace: 'mx';
+
+$default-color: $black;
+$primary-color: $primary;
+$input-hover-border-color: $primary;
+
+$today-color: mix($white, $primary-color, 10%);
+$calendar-hover-background-color: mix($white, $primary-color, 95%) !default;
+
+@import '~vue2-datepicker/scss/index.scss';
+
+
+// index.scss
+.#{$namespace}-datepicker {
+	width: 100% !important;
+
+	&.error {
+		border-color: $danger;
+		&:focus {
+			border-color: $danger;
+		}
+	}
+	&.success {
+		border-color: $success;
+		&:focus {
+			border-color: $success;
+		}
+	}
+}
+
+.#{$namespace}-input {
+	&:hover {
+		border-color: $light !important;
+	}
+
+	&:focus {
+		border-color: $primary-color !important;
+	}
+
+	&:disabled,
+	&.disabled {
+		color: #a8a8a8 !important;
+		background-color: #f6f8fb !important;
+	}
+}
+
+.#{$namespace}-datepicker-main {
+	color: $default-color !important;
+}
+.#{$namespace}-datepicker-popup {
+	z-index: 20 !important;
+}
+
+.#{$namespace}-calendar-content {
+	.cell {
+		&:hover {
+			color: $default-color !important;
+			background-color: $calendar-hover-background-color !important;
+		}
+		&.active {
+			color: #fff !important;
+			background-color: $primary-color !important;
+		}
+		&.in-range,
+		&.hover-in-range {
+			color: $default-color !important;
+			background-color: #ffece7 !important;
+		}
+	}
+}
+.#{$namespace}-table-date {
+	.today {
+		color: $today-color !important;
+	}
+}
+
+.#{$namespace}-time-column {
+	.#{$namespace}-time-item {
+		&:hover {
+			color: $default-color !important;
+			background-color: $calendar-hover-background-color !important;
+		}
+		&.active {
+			color: #fff !important;
+			background-color: $primary-color !important;
+		}
+	}
+}
+
+// btn.scss
+.#{$namespace}-btn {
+	color: $default-color !important;
+	&:hover {
+		border-color: $primary-color !important;
+		color: $primary-color !important;
+	}
+
+	&-icon-double-left:hover,
+	&-icon-left:hover,
+	&-icon-double-right:hover,
+	&-icon-right:hover {
+		background-color: #ffece7 !important;
+		border-radius: 0 !important;
+	}
+	i {
+		color: $primary-color !important;
+	}
+}
