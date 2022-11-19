@@ -57,7 +57,7 @@ export default {
       navList: [],
       navTreeList: [],
 
-      isToggled: false,
+      isToggled: false
     }
   },
   async fetch() {
@@ -78,8 +78,8 @@ export default {
     },
     navClick() {
       this.isToggled = false
-    },
-  },
+    }
+  }
 }
 </script>
 
@@ -99,6 +99,7 @@ export default {
 
 .navbar {
   position: fixed;
+  z-index: 1;
   padding: 18px 0;
   width: 250px;
   height: 100%;

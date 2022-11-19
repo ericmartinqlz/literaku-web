@@ -4,6 +4,12 @@
 
     <div class="--pushed">
       <AdminCMSHeader class="header" @hamburger="hamburgerClicked" />
+      <AdminCMSFlashAlert
+        v-if="isAlertShow"
+        :type="alertType"
+        :message="alertMessage"
+      />
+
       <nuxt class="app-content" />
       <AdminCMSFooter class="footer" />
     </div>
@@ -13,13 +19,32 @@
 <script>
 export default {
   name: 'AdminCMSLayout',
+  data() {
+    return {
+      isAlertShow: false,
+      alertType: null,
+      alertMessage: ''
+    }
+  },
+  mounted() {
+    this.$nuxt.$on('setAlert', (type = 'success', message = '') => {
+      this.alertType = type
+      this.alertMessage = message
+      this.isAlertShow = true
+    })
+    this.$nuxt.$on('unsetAlert', () => {
+      this.alertType = null
+      this.alertMessage = ''
+      this.isAlertShow = false
+    })
+  },
   methods: {
     hamburgerClicked() {
       if (this.$refs.sidenav) {
         this.$refs.sidenav.isToggled = true
       }
-    },
-  },
+    }
+  }
 }
 </script>
 
@@ -52,9 +77,12 @@ export default {
 }
 
 .main-sect {
+  margin-top: 60px;
+  background: $primary-t95;
   padding: 36px;
 
   @media #{$medium} {
+    margin-top: 75px;
     padding: 48px;
   }
 }

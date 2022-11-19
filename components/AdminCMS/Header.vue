@@ -12,18 +12,24 @@
 
 <script>
 export default {
-  name: 'AdminCMSHeader',
+  name: 'AdminCMSHeader'
 }
 </script>
 
 <style lang="scss" scoped>
 .header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  flex: none;
   box-shadow: $shadow;
   background: $white;
   height: 60px;
 
   @media #{$medium} {
     height: 75px;
+    width: calc(100% - 250px);
   }
 }
 

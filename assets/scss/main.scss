@@ -2,6 +2,7 @@
 @import 'partials/variables';
 @import 'partials/helpers';
 @import 'modules/modules';
+@import 'plugins/vue-datepicker';
 
 html, body {
   margin: 0;
@@ -28,10 +29,16 @@ a,
 	color: $link;
 	text-decoration: none;
 
-	&:hover,
-	&:focus {
-		color: $link_hover;
-	}
+  &.btn-link {
+    align-self: center;
+  }
+
+  &:not(.btn-link) {
+    &:hover,
+    &:focus {
+      color: $link_hover;
+    }
+  }
 }
 
 .container {
@@ -49,12 +56,16 @@ a,
 }
 
 .card {
+  overflow-x: hidden;
+  overflow-y: auto;
+
   background: $white;
   box-shadow: $shadow;
   border-radius: 10px;
 
   & .card-hr {
     border-top: 0.5px solid rgba($black, 50%);
+    margin: 16px 0;
   }
 }
 
